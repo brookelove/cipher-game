@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
+import VueRouter from "vue-router"
 </script>
 
 <template>
