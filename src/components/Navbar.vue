@@ -1,9 +1,12 @@
+<script>
+</script>
+
 <template>
     <header className="d-between header">
-        <NavLink to="/" className="home box-shadow">CG</NavLink>
+        <router-link to="/" className="home box-shadow">CG</router-link>
         <section className='d-between'>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/">Overview</NavLink>
+          <router-link to="/about">About</router-link>
+          <router-link to="/overview">Overview</router-link>
         </section>
     </header>
 </template>
@@ -12,12 +15,13 @@
 .header {
   padding: 1%; 
   position: sticky;
-   top: 0;
- z-index: 100;
+  top: 0;
+  z-index: 100;
   padding: 1%;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.25);
+  width: 100vw;
 }
 header .home {
     padding:1.4% 1%;

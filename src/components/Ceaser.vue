@@ -1,5 +1,5 @@
 <script>
-import CongratsModal from "../components/CongratsModal.vue"
+import CongratsModal from "./CongratsModal.vue";
 
 export default {
   data() {

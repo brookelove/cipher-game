@@ -11,6 +11,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --cardLight:#eceaf5;
+  /* --cardDark:  */
+  --lightBackground: #a39dab;
+  --primary: whitesmoke;
+  --lowlight:#8a41f1 ;
+  --highlight:#391375;
+  --opposite: #dfea7b;
+  --light: #7b24ee;
+  --muted: #87776d;
+  --extra: #433c31;
+  --dark:#140f0b;
 }
 
 a {
@@ -61,7 +72,7 @@ button:focus-visible {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 

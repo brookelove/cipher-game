@@ -1,14 +1,23 @@
-<script resutlsModal>
-    defineProps({closeModal,isPassed,level})
-
-    const nextLevel = () => {
-    closeModal()
-    window.location.href(`/level/${level+1}`);
+<script>
+export default {
+  props: {
+    closeModal: Function,
+    isPassed: Boolean,
+    level: Number
+  },
+  methods: {
+    nextLevel() {
+      this.closeModal();
+      if (this.isPassed) {
+        window.location.href = `/level/${this.level + 1}`;
+      }
+    },
+    backToOverview() {
+      this.closeModal();
+      window.location.href = "/overview";
+    }
   }
-  const backToOverview = () => {
-    closeModal()
-    window.location.href("/overview");
-  }
+};
 </script>
 
 <template>
