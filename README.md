@@ -1,7 +1,30 @@
-# Vue 3 + Vite
+# The Cipher Game
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Welcome to Cipher Quest, a thrilling puzzle-solving adventure that challenges your wits with a variety of ciphers and codes! Engage your mind as you decode, decipher, and progress through increasingly complex puzzles.
 
-## Recommended IDE Setup
+## Overview
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Cipher Quest is a single-player game designed to test your problem-solving skills through a series of captivating levels. Each level presents a unique cipher challenge, offering a mix of cryptographic puzzles and brain-teasing riddles.
+
+## How To Play
+
+Your goal is simple: unravel the mysteries concealed within each cipher. Use clues, logic, and your cryptographic knowledge to decipher the codes and progress through the levels. But beware, you only have a limited number of attempts each day, so think strategically!
+
+## Features
+
+    Diverse Cipher Challenges: Encounter various ciphers, from classic ones like Caesar Cipher to more intricate encryption methods.
+    Hints and Clues: Use the '?' button for helpful hints if you find yourself stuck on a puzzle.
+    Level Progression: Move through escalating difficulty levels, each presenting a new challenge.
+    Game Controls: Easy-to-use interface for an immersive gaming experience.
+
+## Get Started
+
+Are you ready to embark on this cryptographic adventure? Clone the repository, fire up the game, and let the quest for decryption begin!
+
+## Tools
+
+- Vue.js
+- CSS
+- JS
+- HTML
+- CurrentTime Tracking API
