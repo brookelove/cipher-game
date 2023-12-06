@@ -78,8 +78,8 @@ export default {
       <div class='card d-center'>
         <header class='d-between'>
             <p :class="warning ? 'warn' : null">ATTEMPTS LEFT : {{ count }}</p>
-            <a class="hint">?</a>
-            <div class="hint-container" @mouseover="handleMouseOver" @mouseleave="handleMouseLeave">
+            <a class="hint" @mouseover="handleMouseOver" @mouseleave="handleMouseLeave">?</a>
+            <div class="hint-container" >
             <p><u>HINT 1</u> What is a type of salad and a cipher?</p>
             <p><u>HINT 2</u> Look at the salads when you hover.</p>
         </div>
@@ -97,7 +97,7 @@ export default {
 </template>
 
 <style>
-.ceaser-cipher background{
+.ceaser-cipher .background{
     position:absolute ;
     width:100%;
     height:100%;
