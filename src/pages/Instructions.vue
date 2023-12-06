@@ -42,7 +42,7 @@
         </div>
       </template>
       <template v-else>
-        <button @click="showInstructions">{{ count === 0 ? 'Click Me' : 'Continue' }}</button>
+        <button @click="showInstructions">{{ count === 0 || count === -1 ? 'Click Me' : 'Continue' }}</button>
       </template>
     </div>
   </template>

@@ -42,6 +42,8 @@ export default {
 }
 .video-overlay {
   position: absolute;
+  left: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;

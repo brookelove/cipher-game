@@ -3,8 +3,8 @@
 
 <template>
     <header className="d-between header">
-        <router-link to="/" className="home box-shadow">CG</router-link>
-        <section className='d-between'>
+        <router-link to="/" class="home box-shadow">CG</router-link>
+        <section class='d-around'>
           <router-link to="/about">About</router-link>
           <router-link to="/overview">Overview</router-link>
         </section>
@@ -13,14 +13,14 @@
 
 <style>
 .header {
-  padding: 1%; 
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 1%;
+  padding: 2%;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.25);
+  box-sizing: border-box;
   width: 100vw;
 }
 header .home {

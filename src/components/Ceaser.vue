@@ -1,5 +1,5 @@
 <script>
-import CongratsModal from "./CongratsModal.vue";
+import Modal from './Modal.vue';
 
 export default {
   data() {
@@ -9,12 +9,14 @@ export default {
       answer: '',
       warning: false,
       isPassed: false,
-      openModal: false
+      openModal: false,
+      saladText: '🥗',
     };
   },
   methods: {
     checkAnswer(event) {
       event.preventDefault();
+      console.log(this.answer.toLowerCase() === 'welcome to the game' )
       if (this.answer.toLowerCase() === 'welcome to the game') {
         this.isPassed = true;
         this.openModal = true;
@@ -41,7 +43,16 @@ export default {
     },
     closeModal() {
       this.openModal = false;
+    },
+    handleMouseOver() {
+      this.saladText = '3';
+    },
+    handleMouseLeave() {
+      this.saladText = '🥗';
     }
+  },
+  components: {
+    Modal
   }
 };
 </script>
@@ -49,26 +60,26 @@ export default {
 <template>
      <div className='ceaser-cipher fullpage d-center'>
       <div className='background'>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p> 
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p>
-        <p>🥗</p> 
-        <p>🥗</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p> 
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p>
+        <p>{{ saladText }}</p> 
+        <p>{{ saladText }}</p>
       </div>
       <div class='card d-center'>
         <header class='d-between'>
-            <p :class="warning ? 'warn' : null">ATTEMPTS LEFT : {count}</p>
+            <p :class="warning ? 'warn' : null">ATTEMPTS LEFT : {{ count }}</p>
             <a class="hint">?</a>
-            <div class="hint-container">
+            <div class="hint-container" @mouseover="handleMouseOver" @mouseleave="handleMouseLeave">
             <p><u>HINT 1</u> What is a type of salad and a cipher?</p>
             <p><u>HINT 2</u> Look at the salads when you hover.</p>
         </div>
@@ -80,7 +91,7 @@ export default {
       </form>
       </div>
         <div  class="modal" v-if="openModal">
-          <CongratsModal :closeModal="closeModal" :isPassed="isPassed" :level="level"/>
+          <Modal :closeModal="closeModal" :isPassed="isPassed" :level="level"/>
         </div>
     </div>
 </template>
@@ -213,19 +224,22 @@ export default {
     top:5%
 }
 .ceaser-cipher .card {
-    padding: 8%;
+    padding: 6%;
+    margin-top: 2%;
     border-radius: 20px;
     border: 3px solid #9dd55d;
     background-color: var(--highlight);
     z-index: 3;
     color: #9dd55d;
-    /* #476e18 */
     flex-direction: column;
     background-color: #476e18;
+    width: 20%;
 }
 .ceaser-cipher .card header {
     margin-bottom: 10%;
-    width:100%
+    width:100%;
+    display: flex;
+    justify-content: space-around;
 }
 .ceaser-cipher .card header p {
    text-decoration: underline;
@@ -247,7 +261,7 @@ export default {
 .ceaser-cipher .card form input {
     padding: 6%;
     margin:4%;
-    width: 100%;
+    width: 70%;
 
 }
 .ceaser-cipher .warn {
@@ -266,7 +280,7 @@ export default {
     background-color: var(--extra);
 }
 .ceaser-cipher .hint-container {
-    top: 31%;
+    top: 41%;
     left: 43%;
     padding: 1%;
     border-radius: 20px;
@@ -276,6 +290,9 @@ export default {
     background-color: #9dd55d;
     transition: all ease-in-out 0.3s;
     
+}
+.hint{
+    z-index:100
 }
 .hint:hover + .hint-container  {
     opacity: 1;

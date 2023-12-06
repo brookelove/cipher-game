@@ -25,17 +25,22 @@ body{
   margin:0%;
   padding:0;
 }
-.d-center {
+:global(.d-center) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.d-between {
+:global(.d-between) {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.d-evenly {
+:global(.d-around) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+:global(.d-evenly) {
   display: flex;
   justify-content: space-evenly;
   align-items: center;

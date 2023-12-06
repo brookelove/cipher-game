@@ -8,13 +8,14 @@ export default {
   methods: {
     checkProgress() {
       let progress = JSON.parse(localStorage.getItem('progress'));
+      console.log(progress)
       if (progress === null || !Array.isArray(progress)) {
         const initialButtonStatus = Array(7).fill(false);
         initialButtonStatus[0] = true;
         this.buttonStatus = initialButtonStatus;
         localStorage.setItem('progress', JSON.stringify(initialButtonStatus));
       } else {
-        this.buttonStatus = progress.map(item => item >= 0 && item <= 7);
+        this.buttonStatus = progress.map(item => !!item);
       }
     },
     handleButtonClick(index) {
@@ -47,7 +48,7 @@ export default {
   <style scoped>
  .overview-section {
     width:100vw;
-    height: 100vh;
+    height: 100%;
     padding:2.5%;
     text-align: center;
 }
