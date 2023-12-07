@@ -1,14 +1,16 @@
 <script>
 // import { ref, computed } from 'vue';
-import {ref, computed} from "vue";
+import { ref, computed } from "vue";
 import Ceaser from '../components/Ceaser.vue';
 import Atbash from '../components/Atbash.vue';
+import RailFence from "../components/RailFence.vue"
 import { useRoute } from 'vue-router';
 
 export default {
   components: {
     Ceaser,
-    Atbash
+    Atbash,
+    RailFence,
   },
   setup() {
     const route = useRoute();
@@ -20,6 +22,9 @@ export default {
           return 'Ceaser';
         case 2:
           return 'Atbash';
+        case 3: {
+          return 'RailFence';
+        }
         default:
           return null;
       }
@@ -33,7 +38,7 @@ export default {
 </script>
 
 <template>
-    <section className='level-page-container'>
-        <component :is="selectedComponent" />
-    </section>
+  <section className='level-page-container'>
+    <component :is="selectedComponent" />
+  </section>
 </template>

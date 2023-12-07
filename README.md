@@ -28,3 +28,8 @@ Are you ready to embark on this cryptographic adventure? Clone the repository, f
 - JS
 - HTML
 - CurrentTime Tracking API
+
+## Credits
+
+Rail Fence Photo by <a href="https://unsplash.com/@m_marcagi10?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Michael Marcagi</a> on <a href="https://unsplash.com/photos/landscape-photography-of-grey-steel-gate-6eP8EMpTbA4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  
