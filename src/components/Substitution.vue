@@ -2,23 +2,20 @@
 import Modal from "./Modal.vue"
 
 let convertAnswer = (input) => {
-    let fence = [];
-    for (let i = 0; i < 3; i++) {
-        fence.push([]);
-    }
-    let rail = 0;
-    let direction = 1;
-    for (let char of cipherText) {
-        fence[rail].push(char);
-        rail += direction;
-
-        if (rail === 3 - 1 || rail === 0) {
-            direction = -direction;
+    let convertedText = [];
+    let plain_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let sub_alphabet = 'QRSTUVWXYZABCDEFGHIJKLMNOP';
+    input = input.toUpperCase().trim().split("");
+    input.map(letter => {
+        let index = plain_alphabet.indexOf(letter)
+        if (letter == ' ') {
+            convertedText.push(" ")
+        } else {
+            convertedText.push(sub_alphabet[index])
         }
-    }
-    this.answer = ""
-    const decrypted = fence.flatMap(row => row).join('');
-    return decrypted;
+    })
+    console.log(convertedText)
+    return convertedText.join("")
 }
 
 export default {
@@ -37,8 +34,20 @@ export default {
         },
         checkAnswer(event) {
             event.preventDefault();
-            let decrypted = convertAnswer(this.answer);
-            // if decrypted if try send modal and give option or if it is false remove 1 and handdle the errors all the way down to 1
+            let input = this.answer.trim()
+            let decrypted = convertAnswer(input);
+            this.answer = "";
+            if (decrypted === "JXYI CUIIQWU DUUTI JE RU TUSHOFJUT") {
+                this.openModal = true;
+                this.isPassed = true;
+                let progress = JSON.parse(localStorage.getItem('progress')) || [];
+                progress[3] = true;
+                localStorage.setItem('progress', JSON.stringify(progress));
+                return;
+            } else {
+                // if decrypted if try send modal and give option or if it is false remove 1 and handle the errors all the way down to 1
+                console.log(false);
+            }
         }
     },
     components: { Modal }
@@ -47,18 +56,17 @@ export default {
 
 <template>
     <div class="rail-fence-cipher d-center">
-        <h1>Rail Fence Cipher</h1>
+        <h1>Substitution Cipher</h1>
         <div class='d-center card'>
             <form @submit.prevent="checkAnswer">
                 <header class='d-between'>
                     <p :class="warning ? 'warn' : null">ATTEMPTS LEFT : {{ count }}</p>
                     <a class="hint" @mouseover="handleMouseOver" @mouseleave="handleMouseLeave">?</a>
                     <div class="hint-container">
-                        <p><u><b>HINT 1</b></u> The Message is right in front of you.</p>
-                        <p><u><b>HINT 2</b></u> There are 3 rails in this cipher</p>
+                        <p><u><b>HINT 1</b></u> Position 16 replaced Position 11.</p>
                     </div>
                 </header>
-                <h2>T RIE HS ECTMSAESIDEE HIDDEN</h2>
+                <h2>JXYI CUIIQWU DUUTI JE RU TUSHOFJUT</h2>
                 <input type='text' v-model="answer" @input="handleInputChange" />
                 <button type="submit">Send</button>
             </form>

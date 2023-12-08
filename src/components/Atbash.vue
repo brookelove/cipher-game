@@ -6,9 +6,7 @@ let atbash_alphabet = 'ZYXWVUTSRQPONMLKJIHGFEDCBA';
 
 let convertAnswer = (input) => {
     let convertedText = []
-    console.log(input);
     input = input.toUpperCase().trim().split("");
-    console.log(input)
     input.map(letter => {
         let index = plain_alphabet.indexOf(letter)
         if (letter == ' ') {
@@ -37,6 +35,7 @@ export default {
         checkAnswer(event) {
             event.preventDefault();
             let converted = convertAnswer(this.answer);
+            this.answer = "";
             if (converted.trim() === "GSV XRKSVI TZNV") {
                 this.openModal = true;
                 this.isPassed = true;
@@ -45,7 +44,7 @@ export default {
                 localStorage.setItem('progress', JSON.stringify(progress));
                 return;
             }
-            this.answer = "";
+
         },
         handleInputChange(event) {
             this.answer = event.target.value;

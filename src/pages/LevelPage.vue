@@ -3,14 +3,14 @@
 import { ref, computed } from "vue";
 import Ceaser from '../components/Ceaser.vue';
 import Atbash from '../components/Atbash.vue';
-import RailFence from "../components/RailFence.vue"
+import Substitution from "../components/Substitution.vue"
 import { useRoute } from 'vue-router';
 
 export default {
   components: {
     Ceaser,
     Atbash,
-    RailFence,
+    Substitution,
   },
   setup() {
     const route = useRoute();
@@ -23,7 +23,7 @@ export default {
         case 2:
           return 'Atbash';
         case 3: {
-          return 'RailFence';
+          return 'Substitution';
         }
         default:
           return null;
