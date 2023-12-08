@@ -36,6 +36,10 @@ body {
   align-items: center;
 }
 
+:global(li) {
+  list-style-type: none;
+}
+
 :global(.d-evenly) {
   display: flex;
   justify-content: space-evenly;
@@ -81,4 +85,5 @@ button:hover {
 .hide {
   background-color: transparent;
   color: transparent;
-}</style>
+}
+</style>
