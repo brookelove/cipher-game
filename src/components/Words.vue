@@ -20,16 +20,6 @@ export default {
                 green: 'lightgreen',
                 gold: 'gold',
             },
-            cellStatus: [
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-                [false, false, false, false, false, false, false, false],
-            ],
         }
     },
     created() {
@@ -66,7 +56,7 @@ export default {
             this.timer = `${pad(this.hours)}:${pad(this.minutes)}:${pad(this.seconds)}`;
         },
         saveProgress() {
-            localStorage.setItem('wordList', JSON.stringify(this.wordList));
+            localStorage.setItem('colorList', JSON.stringify(this.wordList));
         },
         saveTime() {
             const currentTime = this.timer;
@@ -162,7 +152,7 @@ export default {
 
             if (this.count === 0) {
                 this.saveTime();
-                // then we open modal and continue
+                this.openModal();
             }
         }
     },
@@ -249,7 +239,7 @@ export default {
                         <p type="text" maxlength="1" id="cell-6-3">A</p>
                         <p type="text" maxlength="1" id="cell-6-4">O</p>
                         <p type="text" maxlength="1" id="cell-6-5">R</p>
-                        <p type="text" maxlength="1" id="cell-6-6" :class="this.cellStatus ? cell : null">O</p>
+                        <p type="text" maxlength="1" id="cell-6-6">O</p>
                         <p type="text" maxlength="1" id="cell-6-7">R</p>
                     </row>
                     <row>
@@ -265,7 +255,7 @@ export default {
                 </div>
                 <form>
                     <input type='text' v-model="answer" @input="handleInputChange" />
-                    <button @click="checkAnswer">SEND WORD</button>
+                    <button @click="checkAnswer" class="sendBtn">SEND WORD</button>
                 </form>
             </section>
 
@@ -281,7 +271,7 @@ export default {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
-    margin-top: 2%;
+    margin-top: 7% 0;
 }
 
 .timerInst {
@@ -306,11 +296,11 @@ main {
     font-size: 1.3em;
 }
 
-.row {
+/* .row {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .row p {
     text-align: center;
@@ -322,7 +312,10 @@ input:active {
     padding: 5%;
     margin-top: 4%;
     width: 85%;
-    border-color: transparent;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: rgb(113, 111, 137) 3px solid;
     font-size: 2em;
 }
 
@@ -331,7 +324,11 @@ input:active {
     width: 25%;
 }
 
-.cell {
+/* .cell {
     color: limegreen;
+} */
+
+.sendBtn {
+    margin: 4% 0;
 }
 </style>
