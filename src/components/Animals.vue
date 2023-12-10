@@ -5,7 +5,7 @@ export default {
     data() {
         return {
             level: this.$route.params.level,
-            count: 7,
+            count: 8,
             answer: '',
             isPassed: false,
             openModal: false,
@@ -15,25 +15,26 @@ export default {
             hours: 0,
             wordList: [],
             wordColors: {
-                china: 'skyblue',
-                kenya: 'lightgreen',
-                austria: 'purple',
-                fiji: 'yellow',
-                japan: 'orange',
-                yemen: 'red',
-                madagascar: 'blue',
+                flamingo: 'pink',
+                whale: 'darkblue',
+                leopard: 'beige',
+                rhino: 'grey',
+                koala: 'red',
+                platypus: 'green',
+                tiger: 'orange',
+                elephant: 'purple'
             },
             crosswordList: [
-                ['O', 'X', 'Y', 'G', 'I', 'N', 'T', 'C', 'T'],
-                ['R', 'H', 'Q', 'F', 'W', 'O', 'U', 'E', 'U'],
-                ['H', 'O', 'S', 'T', 'H', 'M', 'N', 'K', 'N'],
-                ['Y', 'I', 'C', 'U', 'C', 'D', 'G', 'I', 'G'],
-                ['D', 'E', 'F', 'N', 'L', 'Y', 'S', 'Z', 'S'],
-                ['R', 'G', 'I', 'S', 'A', 'F', 'T', 'J', 'T'],
-                ['O', 'Z', 'B', 'I', 'S', 'M', 'U', 'T', 'E'],
-                ['G', 'L', 'S', 'N', 'Z', 'I', 'N', 'R', 'N'],
-                ['E', 'Q', 'B', 'N', 'Z', 'B', 'A', 'L', 'I'],
-                ['N', 'O', 'T', 'P', 'Y', 'R', 'K', 'I', 'M'],
+                ['E', 'L', 'D', 'B', 'W', 'B', 'F', 'L', 'F', 'R'],
+                ['L', 'F', 'E', 'T', 'T', 'S', 'L', 'W', 'L', 'H'],
+                ['E', 'G', 'K', 'O', 'V', 'P', 'I', 'H', 'A', 'I'],
+                ['P', 'C', 'K', 'W', 'P', 'L', 'L', 'A', 'M', 'N'],
+                ['H', 'P', 'O', 'X', 'L', 'A', 'S', 'L', 'I', 'O'],
+                ['A', 'Z', 'A', 'M', 'T', 'T', 'R', 'E', 'N', 'T'],
+                ['N', 'A', 'L', 'I', 'V', 'Y', 'A', 'D', 'G', 'I'],
+                ['T', 'O', 'A', 'L', 'M', 'P', 'L', 'R', 'O', 'G'],
+                ['G', 'B', 'Q', 'D', 'L', 'U', 'W', 'T', 'H', 'E'],
+                ['M', 'J', 'X', 'E', 'E', 'S', 'S', 'R', 'I', 'R'],
             ]
         }
     },
@@ -100,99 +101,129 @@ export default {
         },
         updateCellStatus(foundWord) {
             switch (foundWord) {
-                case 'china':
-                    let A = document.getElementById('cell-3-0');
-                    let B = document.getElementById('cell-4-0');
-                    let C = document.getElementById('cell-5-0');
-                    let D = document.getElementById('cell-6-0');
-                    let E = document.getElementById('cell-7-0');
-                    let F = document.getElementById('cell-8-0');
-                    let G = document.getElementById('cell-9-0');
-                    let H = document.getElementById('cell-10-0');
-                    A.style.color = this.wordColors.china;
-                    B.style.color = this.wordColors.china;
-                    C.style.color = this.wordColors.china;
-                    D.style.color = this.wordColors.china;
-                    E.style.color = this.wordColors.china;
-                    F.style.color = this.wordColors.china;
-                    G.style.color = this.wordColors.china;
-                    H.style.color = this.wordColors.china;
+                case 'flamingo':
+                    let A = document.getElementById('cell-1-8');
+                    let B = document.getElementById('cell-2-8');
+                    let C = document.getElementById('cell-3-8');
+                    let D = document.getElementById('cell-4-8');
+                    let E = document.getElementById('cell-5-8');
+                    let F = document.getElementById('cell-6-8');
+                    let G = document.getElementById('cell-7-8');
+                    let H = document.getElementById('cell-8-8');
+                    A.style.color = this.wordColors.flamingo;
+                    B.style.color = this.wordColors.flamingo;
+                    C.style.color = this.wordColors.flamingo;
+                    D.style.color = this.wordColors.flamingo;
+                    E.style.color = this.wordColors.flamingo;
+                    F.style.color = this.wordColors.flamingo;
+                    G.style.color = this.wordColors.flamingo;
+                    H.style.color = this.wordColors.flamingo;
                     break;
-                case 'kenya':
-                    let I = document.getElementById('cell-7-1');
-                    let J = document.getElementById('cell-6-2');
-                    let K = document.getElementById('cell-5-3');
-                    let L = document.getElementById('cell-4-4');
-                    I.style.color = this.wordColors.kenya;
-                    J.style.color = this.wordColors.kenya;
-                    K.style.color = this.wordColors.kenya;
-                    L.style.color = this.wordColors.kenya;
+                case 'whale':
+                    let I = document.getElementById('cell-2-7');
+                    let J = document.getElementById('cell-3-7');
+                    let K = document.getElementById('cell-4-7');
+                    let L = document.getElementById('cell-5-7');
+                    let LM = document.getElementById('cell-6-7');
+                    I.style.color = this.wordColors.whale;
+                    J.style.color = this.wordColors.whale;
+                    K.style.color = this.wordColors.whale;
+                    L.style.color = this.wordColors.whale;
+                    LM.style.color = this.wordColors.whale;
                     break;
-                case 'austria':
-                    let M = document.getElementById('cell-7-2');
-                    let N = document.getElementById('cell-7-3');
-                    let O = document.getElementById('cell-7-4');
-                    let P = document.getElementById('cell-7-5');
-                    let Q = document.getElementById('cell-7-6');
+                case 'leopard':
+                    let M = document.getElementById('cell-2-2');
+                    let N = document.getElementById('cell-3-3');
+                    let O = document.getElementById('cell-4-4');
+                    let P = document.getElementById('cell-5-5');
+                    let Q = document.getElementById('cell-6-6');
                     let R = document.getElementById('cell-7-7');
-                    let S = document.getElementById('cell-7-8');
-                    M.style.color = this.wordColors.austria;
-                    N.style.color = this.wordColors.austria;
-                    O.style.color = this.wordColors.austria;
-                    P.style.color = this.wordColors.austria;
-                    Q.style.color = this.wordColors.austria;
-                    R.style.color = this.wordColors.austria;
-                    S.style.color = this.wordColors.austria;
+                    let S = document.getElementById('cell-8-8');
+                    M.style.color = this.wordColors.leopard;
+                    N.style.color = this.wordColors.leopard;
+                    O.style.color = this.wordColors.leopard;
+                    P.style.color = this.wordColors.leopard;
+                    Q.style.color = this.wordColors.leopard;
+                    R.style.color = this.wordColors.leopard;
+                    S.style.color = this.wordColors.leopard;
 
                     break;
-                case 'yemen':
-                    let T = document.getElementById('cell-3-2');
-                    let U = document.getElementById('cell-4-3');
-                    let V = document.getElementById('cell-5-4');
+                case 'platypus':
+                    let T = document.getElementById('cell-3-5');
+                    let U = document.getElementById('cell-4-5');
+                    let V = document.getElementById('cell-5-5');
                     let W = document.getElementById('cell-6-5');
-                    let X = document.getElementById('cell-7-6');
-                    let Y = document.getElementById('cell-8-7');
-                    T.style.color = this.wordColors.yemen;
-                    U.style.color = this.wordColors.yemen;
-                    V.style.color = this.wordColors.yemen;
-                    W.style.color = this.wordColors.yemen;
-                    X.style.color = this.wordColors.yemen;
-                    Y.style.color = this.wordColors.yemen;
+                    let X = document.getElementById('cell-7-5');
+                    let Y = document.getElementById('cell-8-5');
+                    let XY = document.getElementById('cell-9-5');
+                    let YZ = document.getElementById('cell-10-8');
+                    T.style.color = this.wordColors.platypus;
+                    U.style.color = this.wordColors.platypus;
+                    V.style.color = this.wordColors.platypus;
+                    W.style.color = this.wordColors.platypus;
+                    X.style.color = this.wordColors.platypus;
+                    Y.style.color = this.wordColors.platypus;
+                    XY.style.color = this.wordColors.platypus;
+                    YZ.style.color = this.wordColors.platypus;
                     break;
-                case 'fiji':
-                    let Z = document.getElementById('cell-10-6');
-                    let a = document.getElementById('cell-10-5');
-                    let b = document.getElementById('cell-10-4');
-                    let c = document.getElementById('cell-10-3');
-                    let d = document.getElementById('cell-10-2');
+                case 'rhino':
+                    let Z = document.getElementById('cell-1-9');
+                    let a = document.getElementById('cell-2-9');
+                    let b = document.getElementById('cell-3-9');
+                    let c = document.getElementById('cell-4-9');
+                    let d = document.getElementById('cell-5-9');
                     let e = document.getElementById('cell-10-1');
                     let f = document.getElementById('cell-10-0');
-                    Z.style.color = this.wordColors.fiji;
-                    a.style.color = this.wordColors.fiji;
-                    b.style.color = this.wordColors.fiji;
-                    c.style.color = this.wordColors.fiji;
-                    d.style.color = this.wordColors.fiji;
-                    e.style.color = this.wordColors.fiji;
-                    f.style.color = this.wordColors.fiji;
+                    Z.style.color = this.wordColors.rhino;
+                    a.style.color = this.wordColors.rhino;
+                    b.style.color = this.wordColors.rhino;
+                    c.style.color = this.wordColors.rhino;
+                    d.style.color = this.wordColors.rhino;
+                    e.style.color = this.wordColors.rhino;
+                    f.style.color = this.wordColors.rhino;
                     break;
-                case 'japan':
-                    let g = document.getElementById('cell-1-8');
-                    let h = document.getElementById('cell-2-8');
-                    let i = document.getElementById('cell-3-8');
-                    let j = document.getElementById('cell-4-8');
-                    let k = document.getElementById('cell-5-8');
-                    let l = document.getElementById('cell-6-8');
-                    let m = document.getElementById('cell-7-8');
-                    let n = document.getElementById('cell-8-8');
-                    g.style.color = this.wordColors.japan;
-                    h.style.color = this.wordColors.japan;
-                    i.style.color = this.wordColors.japan;
-                    j.style.color = this.wordColors.japan;
-                    k.style.color = this.wordColors.japan;
-                    l.style.color = this.wordColors.japan;
-                    m.style.color = this.wordColors.japan;
-                    n.style.color = this.wordColors.japan;
+                case 'koala':
+                    let g = document.getElementById('cell-4-2');
+                    let h = document.getElementById('cell-5-2');
+                    let i = document.getElementById('cell-6-2');
+                    let j = document.getElementById('cell-7-2');
+                    let k = document.getElementById('cell-8-2');
+                    g.style.color = this.wordColors.koala;
+                    h.style.color = this.wordColors.koala;
+                    i.style.color = this.wordColors.koala;
+                    j.style.color = this.wordColors.koala;
+                    k.style.color = this.wordColors.koala;
                     break;
+                case 'tiger':
+                    let o = document.getElementById('cell-6-9');
+                    let p = document.getElementById('cell-7-9');
+                    let q = document.getElementById('cell-8-9');
+                    let r = document.getElementById('cell-9-9');
+                    let s = document.getElementById('cell-10-9');
+                    o.style.color = this.wordColors.tiger;
+                    p.style.color = this.wordColors.tiger;
+                    q.style.color = this.wordColors.tiger;
+                    r.style.color = this.wordColors.tiger;
+                    s.style.color = this.wordColors.tiger;
+                    break;
+                case 'elephant':
+                    let t = document.getElementById('cell-1-0');
+                    let u = document.getElementById('cell-2-0');
+                    let v = document.getElementById('cell-3-0');
+                    let w = document.getElementById('cell-4-0');
+                    let x = document.getElementById('cell-5-0');
+                    let y = document.getElementById('cell-6-0');
+                    let z = document.getElementById('cell-7-0');
+                    let AB = document.getElementById('cell-8-0');
+                    t.style.color = this.wordColors.koala;
+                    u.style.color = this.wordColors.koala;
+                    v.style.color = this.wordColors.koala;
+                    w.style.color = this.wordColors.koala;
+                    x.style.color = this.wordColors.koala;
+                    y.style.color = this.wordColors.koala;
+                    z.style.color = this.wordColors.koala;
+                    AB.style.color = this.wordColors.koala;
+
                 default:
                     break;
             }
@@ -200,7 +231,7 @@ export default {
         checkAnswer(e) {
             e.preventDefault();
             let listEl = document.getElementById("list");
-            let words = ['china', 'kenya', 'austria', 'yemen', 'fiji', 'japan']
+            let words = ['flamingo', 'whale', 'leopard', 'platypus', 'rhino', 'koala', 'tiger']
             let word = this.answer.toLowerCase();
             let found = false;
 
@@ -241,7 +272,7 @@ export default {
         <aside class="timerInst">
             <!-- counts up -->
             <h3><b>{{ timer }}</b></h3>
-            <H6>Countries</H6>
+            <H6>Animals</H6>
             <br>
             <p>List the words that begin with the topic in this crossword </p>
         </aside>

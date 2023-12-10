@@ -4,17 +4,18 @@ import { ref, computed } from "vue";
 // import Ceaser from '../components/Ceaser.vue';\
 import Words from "../components/Words.vue";
 import Elements from "../components/Elements.vue";
-import Atbash from '../components/Atbash.vue';
-import Substitution from "../components/Substitution.vue"
+import Countries from "../components/Countries.vue";
+import Animals from "../components/Animals.vue";
+// import Atbash from '../components/Atbash.vue';
+// import Substitution from "../components/Substitution.vue"
 import { useRoute } from 'vue-router';
 
 export default {
   components: {
-    // Ceaser,
-    Atbash,
-    Substitution,
     Words,
     Elements,
+    Countries,
+    Animals,
   },
   setup() {
     const route = useRoute();
@@ -26,9 +27,10 @@ export default {
           return 'Words';
         case 2:
           return 'Elements';
-        case 3: {
-          return 'Substitution';
-        }
+        case 3:
+          return 'Countries';
+        case 4:
+          return 'Animals'
         default:
           return null;
       }
