@@ -351,6 +351,7 @@ export default {
     justify-content: space-evenly;
     align-items: flex-start;
     margin-top: 7% 0;
+    background-color: var(--primary);
 }
 
 .timerInst {

@@ -237,9 +237,8 @@ export default {
         <aside class="timerInst">
             <!-- counts up -->
             <h3><b>{{ timer }}</b></h3>
-            <H6>Colors</H6>
-            <br>
-            <p>List the words that begin with the topic in this crossword </p>
+            <h6>Colors</h6>
+            <p>List the words that begin with the topic in this word search </p>
             <button @click="handlePause">pause game</button>
         </aside>
         <main>
@@ -347,10 +346,22 @@ export default {
     justify-content: space-evenly;
     align-items: flex-start;
     margin-top: 7% 0;
+    background-color: var(--primary);
 }
 
 .timerInst {
     width: 25%
+}
+
+.timerInst h6 {
+    font-size: 200%;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+
+.timerInst p {
+    padding: 0 2.5%;
 }
 
 main {

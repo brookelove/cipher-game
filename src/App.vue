@@ -13,6 +13,8 @@ export default {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Kalnia:wght@500;600;700&display=swap');
+
 body {
   margin: 0%;
   padding: 0;
@@ -88,7 +90,6 @@ button:hover {
 }
 
 :global(.wrongAnswer) {
-  /* border-color: 2px solid red; */
   color: red;
   animation: shake 0.5s;
 }

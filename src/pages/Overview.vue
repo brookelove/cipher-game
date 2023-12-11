@@ -17,13 +17,11 @@ export default {
         this.buttonStatus = initialButtonStatus;
         localStorage.setItem('progress', JSON.stringify(initialButtonStatus));
       } else {
-        // check to see if there are any items that are meetingg the current time criteria and can get back to being enabled
-        //if there is
         this.buttonStatus = progress.map(item => !!item);
       }
     },
     handleButtonClick(index) {
-      //got to /level/:levelId (1-4)
+      //got to /level/:levelId (1-5)
       this.$router.push(`/level/${index}`);
     },
 
@@ -52,11 +50,14 @@ export default {
   height: 100%;
   padding: 2.5%;
   text-align: center;
+  background-color: #c2a9fd;
 }
 
 .overview-section h1 {
+  font-family: 'Kalnia', serif;
   padding: 2% 0;
-  font-size: 200%;
+  font-size: 375%;
+  letter-spacing: 5px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--opposite);
@@ -73,17 +74,18 @@ export default {
   width: 70%;
   font-weight: 700;
   font-size: 250%;
-  color: var(--opposite);
+  color: var(--highlight);
   background-color: var(--lowlight);
   border-radius: 10px;
-  border: 3px solid var(--highlight);
+  border: 3px solid var(--dark);
   margin-bottom: 10%;
+  font-family: 'Kalnia', serif;
 }
 
 .overview-section div button:hover {
-  color: var(--primary);
-  background-color: var(--highlight);
-  border: 3px solid var(--lowlight);
+  color: var(--highlight);
+  background-color: var(--light);
+  border: 3px solid var(--primary);
 }
 
 .overview-section div button.disabled {

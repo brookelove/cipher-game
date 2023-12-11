@@ -12,16 +12,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --cardLight:#eceaf5;
-  /* --cardDark:  */
   --lightBackground: #a39dab;
-  --primary: whitesmoke;
-  --lowlight:#8a41f1 ;
-  --highlight:#391375;
-  --opposite: #dfea7b;
-  --light: #7b24ee;
+  --primary: #dbe2e3;
+  --lowlight:#dfcffe;
+  --highlight:#fe6d00;
+  --opposite: #363b53;
+  --light: #8ed9c5;
   --muted: #87776d;
   --extra: #433c31;
-  --dark:#140f0b;
+  --dark:#040205;
 }
 
 a {
