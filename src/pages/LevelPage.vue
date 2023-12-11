@@ -1,13 +1,11 @@
 <script>
 // import { ref, computed } from 'vue';
 import { ref, computed } from "vue";
-// import Ceaser from '../components/Ceaser.vue';\
 import Words from "../components/Words.vue";
+import Plants from "../components/Plants.vue";
+import Animals from "../components/Animals.vue";
 import Elements from "../components/Elements.vue";
 import Countries from "../components/Countries.vue";
-import Animals from "../components/Animals.vue";
-// import Atbash from '../components/Atbash.vue';
-// import Substitution from "../components/Substitution.vue"
 import { useRoute } from 'vue-router';
 
 export default {
@@ -16,6 +14,7 @@ export default {
     Elements,
     Countries,
     Animals,
+    Plants,
   },
   setup() {
     const route = useRoute();
@@ -31,6 +30,8 @@ export default {
           return 'Countries';
         case 4:
           return 'Animals'
+        case 5:
+          return 'Plants'
         default:
           return null;
       }

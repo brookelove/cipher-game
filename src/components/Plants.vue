@@ -17,20 +17,25 @@ export default {
             wordColors: {
                 philodendron: 'skyblue',
                 spider: 'lightgreen',
-                bismuth: 'purple',
-                krypton: 'yellow',
+                laceleaf: 'purple',
+                radiator: 'yellow',
             },
             crosswordList: [
-                ['O', 'X', 'Y', 'G', 'I', 'N', 'T', 'C', 'T'],
-                ['R', 'H', 'Q', 'F', 'W', 'O', 'U', 'E', 'U'],
-                ['H', 'O', 'S', 'T', 'H', 'M', 'N', 'K', 'N'],
-                ['Y', 'I', 'C', 'U', 'C', 'D', 'G', 'I', 'G'],
-                ['D', 'E', 'F', 'N', 'L', 'Y', 'S', 'Z', 'S'],
-                ['R', 'G', 'I', 'S', 'A', 'F', 'T', 'J', 'T'],
-                ['O', 'Z', 'B', 'I', 'S', 'M', 'U', 'T', 'E'],
-                ['G', 'L', 'S', 'N', 'Z', 'I', 'N', 'R', 'N'],
-                ['E', 'Q', 'B', 'N', 'Z', 'B', 'A', 'L', 'I'],
-                ['N', 'O', 'T', 'P', 'Y', 'R', 'K', 'I', 'M'],
+                ['Z', 'G', 'I', 'M', 'E', 'I', 'R', 'A', 'D', 'I', 'A', 'T', 'O', 'R', 'K'],
+                ['M', 'Z', 'S', 'C', 'T', 'W', 'S', 'E', 'H', 'J', 'Z', 'M', 'A', 'I', 'L'],
+                ['L', 'C', 'F', 'N', 'K', 'S', 'P', 'D', 'G', 'P', 'B', 'P', 'B', 'L', 'W'],
+                ['Y', 'T', 'R', 'A', 'C', 'L', 'I', 'N', 'Z', 'H', 'H', 'G', 'H', 'E', 'Z'],
+                ['M', 'D', 'Z', 'V', 'H', 'H', 'D', 'P', 'F', 'I', 'P', 'L', 'W', 'A', 'J'],
+                ['A', 'M', 'G', 'G', 'J', 'A', 'E', 'B', 'T', 'L', 'K', 'C', 'P', 'C', 'K'],
+                ['Q', 'B', 'X', 'O', 'E', 'P', 'R', 'N', 'R', 'O', 'P', 'D', 'Y', 'R', 'T'],
+                ['L', 'L', 'B', 'N', 'C', 'I', 'I', 'G', 'R', 'D', 'I', 'C', 'H', 'G', 'L'],
+                ['D', 'U', 'A', 'H', 'K', 'R', 'Q', 'V', 'D', 'E', 'W', 'B', 'J', 'O', 'D'],
+                ['X', 'H', 'D', 'C', 'H', 'O', 'C', 'M', 'H', 'N', 'D', 'O', 'K', 'F', 'B'],
+                ['V', 'H', 'J', 'X', 'E', 'G', 'V', 'H', 'C', 'D', 'L', 'Z', 'T', 'G', 'D'],
+                ['U', 'M', 'N', 'C', 'N', 'L', 'L', 'U', 'X', 'R', 'H', 'G', 'F', 'E', 'U'],
+                ['V', 'T', 'J', 'J', 'T', 'E', 'E', 'B', 'U', 'O', 'D', 'U', 'P', 'O', 'R'],
+                ['R', 'G', 'J', 'O', 'F', 'O', 'K', 'A', 'J', 'N', 'V', 'D', 'X', 'T', 'I'],
+                ['Z', 'P', 'X', 'Q', 'F', 'B', 'D', 'D', 'F', 'D', 'L', 'G', 'V', 'W', 'J'],
             ]
         }
     },
@@ -97,64 +102,81 @@ export default {
         },
         updateCellStatus(foundWord) {
             switch (foundWord) {
-                case 'hydrogen':
-                    let A = document.getElementById('cell-3-0');
-                    let B = document.getElementById('cell-4-0');
-                    let C = document.getElementById('cell-5-0');
-                    let D = document.getElementById('cell-6-0');
-                    let E = document.getElementById('cell-7-0');
-                    let F = document.getElementById('cell-8-0');
-                    let G = document.getElementById('cell-9-0');
-                    let H = document.getElementById('cell-10-0');
-                    A.style.color = this.wordColors.hydrogen;
-                    B.style.color = this.wordColors.hydrogen;
-                    C.style.color = this.wordColors.hydrogen;
-                    D.style.color = this.wordColors.hydrogen;
-                    E.style.color = this.wordColors.hydrogen;
-                    F.style.color = this.wordColors.hydrogen;
-                    G.style.color = this.wordColors.hydrogen;
-                    H.style.color = this.wordColors.hydrogen;
+                case 'philodendron':
+                    let A = document.getElementById('cell-3-9');
+                    let B = document.getElementById('cell-4-9');
+                    let C = document.getElementById('cell-5-9');
+                    let D = document.getElementById('cell-6-9');
+                    let E = document.getElementById('cell-7-9');
+                    let F = document.getElementById('cell-8-9');
+                    let G = document.getElementById('cell-9-9');
+                    let H = document.getElementById('cell-10-9');
+                    let M = document.getElementById('cell-11-9');
+                    let N = document.getElementById('cell-12-9');
+                    let O = document.getElementById('cell-13-9');
+                    let P = document.getElementById('cell-14-9');
+                    A.style.color = this.wordColors.philodendron;
+                    B.style.color = this.wordColors.philodendron;
+                    C.style.color = this.wordColors.philodendron;
+                    D.style.color = this.wordColors.philodendron;
+                    E.style.color = this.wordColors.philodendron;
+                    F.style.color = this.wordColors.philodendron;
+                    G.style.color = this.wordColors.philodendron;
+                    H.style.color = this.wordColors.philodendron;
+                    M.style.color = this.wordColors.philodendron;
+                    N.style.color = this.wordColors.philodendron;
+                    O.style.color = this.wordColors.philodendron;
+                    P.style.color = this.wordColors.philodendron;
                     break;
-                case 'zinc':
-                    let I = document.getElementById('cell-7-1');
-                    let J = document.getElementById('cell-6-2');
-                    let K = document.getElementById('cell-5-3');
-                    let L = document.getElementById('cell-4-4');
-                    I.style.color = this.wordColors.zinc;
-                    J.style.color = this.wordColors.zinc;
-                    K.style.color = this.wordColors.zinc;
-                    L.style.color = this.wordColors.zinc;
+                case 'spider':
+                    let I = document.getElementById('cell-2-6');
+                    let J = document.getElementById('cell-3-6');
+                    let K = document.getElementById('cell-4-6');
+                    let L = document.getElementById('cell-5-6');
+                    let g = document.getElementById('cell-6-6');
+                    let h = document.getElementById('cell-7-6');
+                    I.style.color = this.wordColors.spider;
+                    J.style.color = this.wordColors.spider;
+                    K.style.color = this.wordColors.spider;
+                    L.style.color = this.wordColors.spider;
+                    g.style.color = this.wordColors.spider;
+                    h.style.color = this.wordColors.spider;
                     break;
-                case 'bismuth':
-                    let M = document.getElementById('cell-7-2');
-                    let N = document.getElementById('cell-7-3');
-                    let O = document.getElementById('cell-7-4');
-                    let P = document.getElementById('cell-7-5');
-                    let Q = document.getElementById('cell-7-6');
-                    let R = document.getElementById('cell-7-7');
-                    let S = document.getElementById('cell-7-8');
-                    M.style.color = this.wordColors.bismuth;
-                    N.style.color = this.wordColors.bismuth;
-                    O.style.color = this.wordColors.bismuth;
-                    P.style.color = this.wordColors.bismuth;
-                    Q.style.color = this.wordColors.bismuth;
-                    R.style.color = this.wordColors.bismuth;
-                    S.style.color = this.wordColors.bismuth;
-
+                case 'laceleaf':
+                    let Q = document.getElementById('cell-8-1');
+                    let R = document.getElementById('cell-9-2');
+                    let S = document.getElementById('cell-10-3');
+                    let T = document.getElementById('cell-11-4');
+                    let U = document.getElementById('cell-12-5');
+                    let V = document.getElementById('cell-13-6');
+                    let W = document.getElementById('cell-14-7');
+                    let X = document.getElementById('cell-15-8');
+                    Q.style.color = this.wordColors.laceleaf;
+                    R.style.color = this.wordColors.laceleaf;
+                    S.style.color = this.wordColors.laceleaf;
+                    T.style.color = this.wordColors.laceleaf;
+                    U.style.color = this.wordColors.laceleaf;
+                    V.style.color = this.wordColors.laceleaf;
+                    W.style.color = this.wordColors.laceleaf;
+                    X.style.color = this.wordColors.laceleaf;
                     break;
-                case 'sulfur':
-                    let T = document.getElementById('cell-3-2');
-                    let U = document.getElementById('cell-4-3');
-                    let V = document.getElementById('cell-5-4');
-                    let W = document.getElementById('cell-6-5');
-                    let X = document.getElementById('cell-7-6');
-                    let Y = document.getElementById('cell-8-7');
-                    T.style.color = this.wordColors.sulfur;
-                    U.style.color = this.wordColors.sulfur;
-                    V.style.color = this.wordColors.sulfur;
-                    W.style.color = this.wordColors.sulfur;
-                    X.style.color = this.wordColors.sulfur;
-                    Y.style.color = this.wordColors.sulfur;
+                case 'radiator':
+                    let Y = document.getElementById('cell-1-6');
+                    let Z = document.getElementById('cell-1-7');
+                    let a = document.getElementById('cell-1-8');
+                    let b = document.getElementById('cell-1-9');
+                    let c = document.getElementById('cell-1-10');
+                    let d = document.getElementById('cell-1-11');
+                    let e = document.getElementById('cell-1-12');
+                    let f = document.getElementById('cell-1-13');
+                    Y.style.color = this.wordColors.radiator;
+                    Z.style.color = this.wordColors.radiator;
+                    a.style.color = this.wordColors.radiator;
+                    b.style.color = this.wordColors.radiator;
+                    c.style.color = this.wordColors.radiator;
+                    d.style.color = this.wordColors.radiator;
+                    e.style.color = this.wordColors.radiator;
+                    f.style.color = this.wordColors.radiator
                     break;
                 default:
                     break;
@@ -163,7 +185,7 @@ export default {
         checkAnswer(e) {
             e.preventDefault();
             let listEl = document.getElementById("list");
-            let words = ['hydrogen', 'zinc', 'bismuth', 'sulfur', 'krypton', 'tungsten']
+            let words = ['philodendron', 'laceleaf', 'radiator', 'spider']
             let word = this.answer.toLowerCase();
             let found = false;
 
@@ -250,7 +272,7 @@ main {
 
 .crossword-grid {
     display: grid;
-    grid-template-columns: repeat(10, 60px);
+    grid-template-columns: repeat(15, 45px) !important;
     grid-gap: 2px;
     justify-content: center;
     align-items: center;

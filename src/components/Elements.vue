@@ -236,7 +236,7 @@ export default {
 </script>
 
 <template>
-    <section class="d-even container">
+    <section class="d-even container elements-container">
         <aside class="timerInst">
             <!-- counts up -->
             <h3><b>{{ timer }}</b></h3>
@@ -284,7 +284,7 @@ main {
     text-align: center
 }
 
-.crossword-grid {
+.elements-container .crossword-grid {
     display: grid;
     grid-template-columns: repeat(10, 60px);
     grid-gap: 2px;

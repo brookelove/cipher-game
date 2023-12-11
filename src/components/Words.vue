@@ -23,6 +23,7 @@ export default {
         }
     },
     created() {
+        this.checkProgress();
         this.startTimer();
     },
     methods: {
@@ -47,15 +48,50 @@ export default {
                 this.updateTimer();
             }, 1000);
         },
-        stopTimer() {
-            this.timerRunning = false;
-            clearInterval(this.intervalId);
+        handleResume() {
+            this.saveProgress();
+            this.startTimer();
         },
         updateTimer() {
             const pad = (num) => (num < 10 ? `0${num}` : num);
             this.timer = `${pad(this.hours)}:${pad(this.minutes)}:${pad(this.seconds)}`;
         },
+        checkProgress() {
+            const savedGameTimer = localStorage.getItem('gameTimer');
+            if (savedGameTimer) {
+                const gameTimer = JSON.parse(savedGameTimer);
+                this.timer = gameTimer.timer;
+                this.seconds = gameTimer.seconds;
+                this.minutes = gameTimer.minutes;
+                this.hours = gameTimer.hours;
+                const savedColors = JSON.parse(localStorage.getItem('colorList'));
+                if (savedColors) {
+                    this.wordList = savedColors;
+                }
+            }
+
+        },
+        stopTimer() {
+            this.timerRunning = false;
+            clearInterval(this.intervalId);
+        },
         saveProgress() {
+            let wordListEl = document.getElementById("list")
+            let tempArr = []
+            for (let i = 0; i < wordListEl.children.length; i++) {
+                const wordId = wordListEl.children[i].id.textContent.toLowerCase();
+                if (wordId && wordId.textContent && !tempArr.includes(word)) {
+                    tempArr.push(wordId.textContent);
+                }
+            }
+            const gameTimer = {
+                timer: this.timer,
+                seconds: this.seconds,
+                minutes: this.minutes,
+                hours: this.hours,
+            }
+            this.wordList = tempArr;
+            localStorage.setItem('gameState', JSON.stringify(gameTimer));
             localStorage.setItem('colorList', JSON.stringify(this.wordList));
         },
         saveTime() {
@@ -129,6 +165,10 @@ export default {
             let words = ['red', 'orange', 'blue', 'green', 'gold']
             let word = this.answer.toLowerCase();
             let found = false;
+            if (this.count === 0) {
+                this.saveTime();
+                this.openModal();
+            }
 
             for (let i = 0; i < words.length; i++) {
                 if (words[i] === word) {
@@ -138,8 +178,18 @@ export default {
                 }
             }
 
+            if (!found) {
+                let inputEl = document.getElementById("input");
+                let sendBtn = document.getElementById("sendBtn")
+                inputEl.classList.add("wrongAnswer");
+                sendBtn.classList.add("wrongBtn");
+                setTimeout(() => {
+                    inputEl.classList.remove("wrongAnswer");
+                    sendBtn.classList.remove("wrongBtn");
+                }, 1000);
+            }
+
             if (found) {
-                this.saveProgress();
                 let fullWordEl = document.createElement("li");
                 fullWordEl.setAttribute("id", word);
                 fullWordEl.textContent = word.toUpperCase();
@@ -152,7 +202,33 @@ export default {
 
             if (this.count === 0) {
                 this.saveTime();
-                this.openModal();
+                this.solvePuzzleComplete();
+            }
+
+
+        },
+        handlePause(e) {
+            if (this.timerRunning) {
+                this.timerRunning = false;
+                this.stopTimer();
+                this.saveProgress();
+            } else {
+                this.timerRunning = true;
+                this.saveProgress();
+                this.startTimer();
+            }
+
+        },
+        solvePuzzleComplete() {
+            let progress = JSON.parse(localStorage.getItem('progress')) || [];
+            console.log(progress)
+            if (this.count === 0) {
+                progress[1] = true;
+                console.log(progress)
+                this.isPassed = true;
+                localStorage.setItem('progress', JSON.stringify(progress));
+                this.saveTime();
+                this.openModal = true;
             }
         }
     },
@@ -167,11 +243,12 @@ export default {
             <H6>Colors</H6>
             <br>
             <p>List the words that begin with the topic in this crossword </p>
+            <button @click="handlePause">pause game</button>
         </aside>
         <main>
             <h1>{{ count }} words</h1>
             <section>
-                <div class="crossword-grid">
+                <div class="colors-crossword-grid">
                     <row>
                         <p type="text" maxlength="1" id="cell-0-0">P</p>
                         <p type="text" maxlength="1" id="cell-0-1">O</p>
@@ -254,8 +331,8 @@ export default {
                     </row>
                 </div>
                 <form>
-                    <input type='text' v-model="answer" @input="handleInputChange" />
-                    <button @click="checkAnswer" class="sendBtn">SEND WORD</button>
+                    <input type='text' v-model="answer" @input="handleInputChange" id="input" />
+                    <button @click="checkAnswer" class="sendBtn" id="sendBtn">SEND WORD</button>
                 </form>
             </section>
 
@@ -264,6 +341,7 @@ export default {
             <h3>Words Found</h3>
             <ul id="list"></ul>
         </aside>
+        <Modal v-if="openModal" :closeModal="closeModal" :isPassed="isPassed" :level="level" />
     </section>
 </template>
 <style>
@@ -287,7 +365,7 @@ main {
     text-align: center
 }
 
-.crossword-grid {
+.colors-crossword-grid {
     display: grid;
     grid-template-columns: repeat(8, 60px);
     grid-gap: 2px;
@@ -295,12 +373,6 @@ main {
     align-items: center;
     font-size: 1.3em;
 }
-
-/* .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .row p {
     text-align: center;
@@ -323,10 +395,6 @@ input:active {
     text-align: center;
     width: 25%;
 }
-
-/* .cell {
-    color: limegreen;
-} */
 
 .sendBtn {
     margin: 4% 0;

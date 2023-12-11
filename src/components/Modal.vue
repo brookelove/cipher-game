@@ -6,19 +6,13 @@ export default {
     level: Number
   },
   methods: {
-    nextLevel() {
-      this.closeModal();
-      if (this.isPassed) {
-        window.location.href = `/level/${this.level + 1}`;
-      }
-    },
     backToOverview() {
       this.closeModal();
       window.location.href = "/overview";
     },
     createConfetti() {
       const confettiCount = 10;
-      const confettiContainerEl = document.querySelector('.confetti-container')
+      const confettiContainerEl = document.querySelector('.confetti')
 
       for (let i = 0; i < confettiCount; i++) {
         const confetti = document.createElement('div');
@@ -26,8 +20,9 @@ export default {
         confetti.innerText = "🎉";
         confetti.style.left = `${Math.random() * 100}vw`;
         confetti.style.animationDelay = `${Math.random() * 5}s`;
-        body.appendChild(confettiContainerEl);
+        confettiContainerEl.appendChild(confetti);
       }
+      console.log('Confetti created!');
     }
   },
   mounted() {
@@ -37,7 +32,7 @@ export default {
 </script>
 
 <template>
-  <section className='congrats-modal'>
+  <section className='modal'>
     <!-- add confetti pop out -->
     <div class="confetti"></div>
     <h1 v-if="isPassed">Congratulations!</h1>
@@ -53,7 +48,6 @@ export default {
       <span></span>
     </div>
     <div v-if="isPassed" class="passed">
-      <button @click="closeModal">Next Level</button>
       <button @click="backToOverview">Back To Overview</button>
     </div>
     <div v-else>
@@ -63,9 +57,6 @@ export default {
 </template>
 
 <style>
-/* make come forward and absolute */
-/* make the confetti pop */
-/* add a sound? */
 .modal {
   position: fixed;
   left: 0;
@@ -77,6 +68,8 @@ export default {
   background-color: rgba(0, 0, 0, 0.532);
   width: 100vw;
   z-index: 100;
+  flex-direction: column;
+  background-color: burlywood;
 }
 
 .congrats-modal {
@@ -95,20 +88,25 @@ export default {
   position: absolute;
   width: 10px;
   height: 10px;
-  /* Change color as desired */
   border-radius: 50%;
   pointer-events: none;
-  /* Prevent interaction with confetti elements */
-  animation: confetti-fall 2s linear infinite;
+  animation: pop 2s linear infinite;
 }
 
 @keyframes pop {
   0% {
-    transform: translateY(-100vh) rotateZ(0);
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 1;
   }
 
   100% {
-    transform: translateY(100vh) rotateZ(720deg);
+    transform: translateY(100vh) scale(1);
+    opacity: 0;
   }
 }
 </style>

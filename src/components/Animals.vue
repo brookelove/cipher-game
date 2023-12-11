@@ -172,15 +172,11 @@ export default {
                     let b = document.getElementById('cell-3-9');
                     let c = document.getElementById('cell-4-9');
                     let d = document.getElementById('cell-5-9');
-                    let e = document.getElementById('cell-10-1');
-                    let f = document.getElementById('cell-10-0');
                     Z.style.color = this.wordColors.rhino;
                     a.style.color = this.wordColors.rhino;
                     b.style.color = this.wordColors.rhino;
                     c.style.color = this.wordColors.rhino;
                     d.style.color = this.wordColors.rhino;
-                    e.style.color = this.wordColors.rhino;
-                    f.style.color = this.wordColors.rhino;
                     break;
                 case 'koala':
                     let g = document.getElementById('cell-4-2');
@@ -215,14 +211,14 @@ export default {
                     let y = document.getElementById('cell-6-0');
                     let z = document.getElementById('cell-7-0');
                     let AB = document.getElementById('cell-8-0');
-                    t.style.color = this.wordColors.koala;
-                    u.style.color = this.wordColors.koala;
-                    v.style.color = this.wordColors.koala;
-                    w.style.color = this.wordColors.koala;
-                    x.style.color = this.wordColors.koala;
-                    y.style.color = this.wordColors.koala;
-                    z.style.color = this.wordColors.koala;
-                    AB.style.color = this.wordColors.koala;
+                    t.style.color = this.wordColors.elephant;
+                    u.style.color = this.wordColors.elephant;
+                    v.style.color = this.wordColors.elephant;
+                    w.style.color = this.wordColors.elephant;
+                    x.style.color = this.wordColors.elephant;
+                    y.style.color = this.wordColors.elephant;
+                    z.style.color = this.wordColors.elephant;
+                    AB.style.color = this.wordColors.elephant;
 
                 default:
                     break;
@@ -231,7 +227,7 @@ export default {
         checkAnswer(e) {
             e.preventDefault();
             let listEl = document.getElementById("list");
-            let words = ['flamingo', 'whale', 'leopard', 'platypus', 'rhino', 'koala', 'tiger']
+            let words = ['flamingo', 'whale', 'leopard', 'platypus', 'rhino', 'koala', 'tiger', 'elephant']
             let word = this.answer.toLowerCase();
             let found = false;
 

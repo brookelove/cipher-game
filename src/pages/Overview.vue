@@ -11,8 +11,8 @@ export default {
       console.log(progress)
       //if there is no item in local storage
       if (progress === null || !Array.isArray(progress)) {
-        //creates 4 buttons that are each level
-        const initialButtonStatus = Array(4).fill(false);
+        //creates 5 buttons that are each level
+        const initialButtonStatus = Array(5).fill(false);
         initialButtonStatus[0] = true; //level 1 starts true so it is not diabled 
         this.buttonStatus = initialButtonStatus;
         localStorage.setItem('progress', JSON.stringify(initialButtonStatus));
