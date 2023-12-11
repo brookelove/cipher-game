@@ -39,10 +39,10 @@ export default {
     },
     created() {
         this.startTimer();
+        this.startTimer();
     },
     mounted() {
         this.createCrossword();
-        //CHECK LOCAL STORAGE FOR WORDS AND ADD THEM TO THE COUNT AND POP THEM INTO THE WORDS FOUND 
     },
     methods: {
         startTimer() {
@@ -77,9 +77,28 @@ export default {
             })
 
         },
+        handlePause(e) {
+            if (this.timerRunning) {
+                this.timerRunning = false;
+                this.stopTimer();
+                this.saveProgress();
+            } else {
+                this.timerRunning = true;
+                this.saveProgress();
+                this.startTimer();
+            }
+        },
+        handleResume() {
+            this.saveProgress();
+            this.startTimer();
+        },
         stopTimer() {
             this.timerRunning = false;
             clearInterval(this.intervalId);
+        },
+        saveTime() {
+            const currentTime = this.timer;
+            localStorage.setItem('winTime', currentTime);
         },
         updateTimer() {
             const pad = (num) => (num < 10 ? `0${num}` : num);
@@ -202,6 +221,39 @@ export default {
                     break;
             }
         },
+        checkProgress() {
+            const savedGameTimer = localStorage.getItem('gameTimer');
+            if (savedGameTimer) {
+                const gameTimer = JSON.parse(savedGameTimer);
+                this.timer = gameTimer.timer;
+                this.seconds = gameTimer.seconds;
+                this.minutes = gameTimer.minutes;
+                this.hours = gameTimer.hours;
+                const savedColors = JSON.parse(localStorage.getItem('colorList'));
+                if (savedColors) {
+                    this.wordList = savedColors;
+                }
+            }
+        },
+        saveProgress() {
+            let wordListEl = document.getElementById("list")
+            let tempArr = []
+            for (let i = 0; i < wordListEl.children.length; i++) {
+                const wordId = wordListEl.children[i].id;
+                if (wordId && wordId.textContent && !tempArr.includes(word)) {
+                    tempArr.push(wordId.textContent);
+                }
+            }
+            const gameTimer = {
+                timer: this.timer,
+                seconds: this.seconds,
+                minutes: this.minutes,
+                hours: this.hours,
+            }
+            this.wordList = tempArr;
+            localStorage.setItem('gameState', JSON.stringify(gameTimer));
+            localStorage.setItem('colorList', JSON.stringify(this.wordList));
+        },
         checkAnswer(e) {
             e.preventDefault();
             let listEl = document.getElementById("list");
@@ -209,12 +261,28 @@ export default {
             let word = this.answer.toLowerCase();
             let found = false;
 
+            if (this.count === 0) {
+                this.saveTime();
+                this.solvePuzzleComplete();
+            }
+
             for (let i = 0; i < words.length; i++) {
                 if (words[i] === word) {
                     found = true;
                     this.count--;
                     this.updateCellStatus(word);
                 }
+            }
+
+            if (!found) {
+                let inputEl = document.getElementById("input");
+                let sendBtn = document.getElementById("sendBtn")
+                inputEl.classList.add("wrongAnswer");
+                sendBtn.classList.add("wrongBtn");
+                setTimeout(() => {
+                    inputEl.classList.remove("wrongAnswer");
+                    sendBtn.classList.remove("wrongBtn");
+                }, 1000);
             }
 
             if (found) {
@@ -226,17 +294,25 @@ export default {
                 let color = this.wordColors[word];
                 let temp = document.getElementById(word);
                 temp.style.color = color;
-                // ADD ITEM TO LOCAL STORAGE
-                // AS AN ARRAY
             }
             this.answer = "";
 
             if (this.count === 0) {
                 this.saveTime();
-                this.openModal();
+                this.solvePuzzleComplete();
             }
+        },
+        solvePuzzleComplete() {
+            let progress = JSON.parse(localStorage.getItem('progress')) || [];
+            console.log(progress)
+            progress[3] = true;
+            this.isPassed = true;
+            localStorage.setItem('progress', JSON.stringify(progress));
+            this.saveTime();
+            this.openModal = true;
         }
-    }
+    },
+    components: { Modal }
 }
 
 </script>
@@ -246,18 +322,18 @@ export default {
         <aside class="timerInst">
             <!-- counts up -->
             <h3><b>{{ timer }}</b></h3>
-            <H6>Periodic Elements</H6>
+            <H6>Countries</H6>
             <br>
             <p>List the words that begin with the topic in this crossword </p>
         </aside>
         <main>
             <h1> {{ count }} words</h1>
             <section>
-                <div class="crossword-grid" id="crossword">
+                <div class="countries-crossword-grid" id="crossword">
                 </div>
                 <form>
-                    <input type='text' v-model="answer" @input="handleInputChange" />
-                    <button @click="checkAnswer" class="sendBtn">SEND WORD</button>
+                    <input type='text' v-model="answer" @input="handleInputChange" id="input" />
+                    <button @click="checkAnswer" class="sendBtn" id="sendBtn">SEND WORD</button>
                 </form>
             </section>
         </main>
@@ -265,7 +341,7 @@ export default {
             <h3>Words Found</h3>
             <ul id="list"></ul>
         </aside>
-
+        <Modal v-if="openModal" :closeModal="closeModal" :isPassed="isPassed" :level="level" />
     </section>
 </template>
 
@@ -290,7 +366,7 @@ main {
     text-align: center
 }
 
-.crossword-grid {
+.countries-crossword-grid {
     display: grid;
     grid-template-columns: repeat(10, 60px);
     grid-gap: 2px;

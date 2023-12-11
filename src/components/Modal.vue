@@ -35,9 +35,7 @@ export default {
   <section className='modal'>
     <!-- add confetti pop out -->
     <div class="confetti"></div>
-    <h1 v-if="isPassed">Congratulations!</h1>
-    <h1 v-else>Try Again Next Time</h1>
-
+    <h1>Congratulations!</h1>
     <div>
       <span></span>
       <span></span>
@@ -47,11 +45,8 @@ export default {
       <span></span>
       <span></span>
     </div>
-    <div v-if="isPassed" class="passed">
+    <div class="passed">
       <button @click="backToOverview">Back To Overview</button>
-    </div>
-    <div v-else>
-      <button @click="backToOverview">See You In 24H</button>
     </div>
   </section>
 </template>

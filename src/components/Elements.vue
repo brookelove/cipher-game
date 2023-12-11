@@ -76,21 +76,6 @@ export default {
             })
 
         },
-        startTimer() {
-            this.timerRunning = true;
-            this.intervalId = setInterval(() => {
-                this.seconds++;
-                if (this.seconds === 60) {
-                    this.seconds = 0;
-                    this.minutes++;
-                    if (this.minutes === 60) {
-                        this.minutes = 0;
-                        this.hours++;
-                    }
-                }
-                this.updateTimer();
-            }, 1000);
-        },
         handlePause(e) {
             if (this.timerRunning) {
                 this.timerRunning = false;
@@ -273,7 +258,7 @@ export default {
 
             if (this.count === 0) {
                 this.saveTime();
-                this.openModal();
+                this.solvePuzzleComplete();
             }
             for (let i = 0; i < words.length; i++) {
                 if (words[i] === word) {
@@ -316,12 +301,10 @@ export default {
             console.log(progress)
             if (this.count === 0) {
                 progress[2] = true;
-                console.log(progress)
                 this.isPassed = true;
                 localStorage.setItem('progress', JSON.stringify(progress));
                 this.saveTime();
                 this.openModal = true;
-                console.log("Modal status:", this.openModal);
             }
         }
     },
