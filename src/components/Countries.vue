@@ -38,7 +38,7 @@ export default {
         }
     },
     created() {
-        this.startTimer();
+        this.checkProgress();
         this.startTimer();
     },
     mounted() {
