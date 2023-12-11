@@ -69,7 +69,6 @@ export default {
                     this.wordList = savedColors;
                 }
             }
-
         },
         stopTimer() {
             this.timerRunning = false;
@@ -79,7 +78,7 @@ export default {
             let wordListEl = document.getElementById("list")
             let tempArr = []
             for (let i = 0; i < wordListEl.children.length; i++) {
-                const wordId = wordListEl.children[i].id.textContent.toLowerCase();
+                const wordId = wordListEl.children[i].id;
                 if (wordId && wordId.textContent && !tempArr.includes(word)) {
                     tempArr.push(wordId.textContent);
                 }
@@ -204,8 +203,6 @@ export default {
                 this.saveTime();
                 this.solvePuzzleComplete();
             }
-
-
         },
         handlePause(e) {
             if (this.timerRunning) {
