@@ -8,7 +8,7 @@ export default {
   methods: {
     backToOverview() {
       this.closeModal();
-      window.location.href = "/overview";
+      this.$router.push('/overview')
     },
     createConfetti() {
       const confettiCount = 10;
