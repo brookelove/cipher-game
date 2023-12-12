@@ -5,6 +5,7 @@ import Overview from "./pages/Overview.vue";
 import Instructions from "./pages/Instructions.vue";
 import LevelPage from "./pages/LevelPage.vue";
 import Words from "./components/Words.vue";
+import Congrats from "./pages/Congrats.vue";
 import "./style.css";
 import App from "./App.vue";
 
@@ -14,6 +15,7 @@ const routes = [
   { path: "/instructions", component: Instructions },
   { path: "/level/:levelId", component: LevelPage },
   { path: "/strings", component: Words },
+  { path: "/congrats", component: Congrats },
 ];
 
 const router = createRouter({

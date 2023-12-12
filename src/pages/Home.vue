@@ -60,7 +60,6 @@ export default {
 }
 
 .video-overlay h1 {
-  font-family: 'Alfa Slab One', serif;
   color: var(--primary);
   font-size: 600%;
   text-transform: uppercase;

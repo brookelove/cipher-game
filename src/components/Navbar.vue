@@ -3,10 +3,10 @@
 
 <template>
   <header className="d-between header">
-    <router-link to="/" class="home box-shadow">CG</router-link>
+    <router-link to="/" class="home box-shadow">FW</router-link>
     <section class='d-around'>
-      <router-link to="/about">About</router-link>
-      <router-link to="/overview">Overview</router-link>
+      <!-- <router-link to="/about">About</router-link> -->
+      <router-link to="/overview">Play</router-link>
     </section>
   </header>
 </template>

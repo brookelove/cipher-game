@@ -298,7 +298,7 @@ export default {
         <aside class="timerInst">
             <!-- counts up -->
             <h3><b>{{ timer }}</b></h3>
-            <H6>Periodic Elements</H6>
+            <h6>Periodic Elements</h6>
             <br>
             <p>List the words that begin with the topic in this crossword </p>
         </aside>

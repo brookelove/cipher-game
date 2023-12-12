@@ -6,9 +6,24 @@ export default {
     };
   },
   methods: {
+    gameCompletion() {
+      let progress = JSON.parse(localStorage.getItem('progress'));
+      if (progress === null || !Array.isArray(progress)) {
+        return false;
+      } else {
+        const allTrue = progress.every(item => item === true);
+
+        if (allTrue) {
+          this.$router.push('/congrats')
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+
     checkProgress() {
       let progress = JSON.parse(localStorage.getItem('progress'));
-      console.log(progress)
       //if there is no item in local storage
       if (progress === null || !Array.isArray(progress)) {
         //creates 5 buttons that are each level
@@ -28,6 +43,7 @@ export default {
   },
   created() {
     this.checkProgress();
+    this.gameCompletion();
   },
 };
 </script>
@@ -83,7 +99,7 @@ export default {
 }
 
 .overview-section div button:hover {
-  color: var(--highlight);
+  color: var(--dark);
   background-color: var(--light);
   border: 3px solid var(--primary);
 }

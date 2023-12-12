@@ -35,18 +35,13 @@ export default {
   <section className='modal'>
     <!-- add confetti pop out -->
     <div class="confetti"></div>
-    <h1>Congratulations!</h1>
-    <div>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="passed">
-      <button @click="backToOverview">Back To Overview</button>
+    <div class="congrats-modal ">
+      <h1>Congratulations!</h1>
+
+
+      <div class="passed">
+        <button @click="backToOverview">Back To Overview</button>
+      </div>
     </div>
   </section>
 </template>
@@ -64,19 +59,23 @@ export default {
   width: 100vw;
   z-index: 100;
   flex-direction: column;
-  background-color: burlywood;
+  font-family: 'Kalnia', serif;
 }
 
 .congrats-modal {
-  background-color: rgb(217, 220, 238);
+  background-color: var(--light);
   padding: 3%;
-  border-radius: 25px;
+  border-radius: 40px;
   width: 30%;
 }
 
 .passed {
   display: flex;
   justify-content: space-around;
+}
+
+.passed button {
+  background-color: var(--highlight);
 }
 
 .confetti {
@@ -95,12 +94,12 @@ export default {
   }
 
   50% {
-    transform: translateY(-100vh) scale(1.5);
-    opacity: 1;
+    transform: translateY(-100vh) scale(1.2);
+    opacity: 0.8;
   }
 
   100% {
-    transform: translateY(100vh) scale(1);
+    transform: translateY(100vh) scale(0.8);
     opacity: 0;
   }
 }
