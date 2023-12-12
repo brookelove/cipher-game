@@ -26,11 +26,11 @@
 
 .header a {
   font-family: 'Abril Fatface', serif;
-  color: var(--extra);
 }
 
 .header section a {
   font-weight: 700;
+  color: var(--light);
 }
 
 header .home {
@@ -45,7 +45,7 @@ header .home {
 
 header .home:hover {
   border: 1px solid var(--opposite);
-  color: var(--opposite);
+  color: var(--light);
 }
 
 header section {
